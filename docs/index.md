@@ -95,6 +95,15 @@ Mit noFill() und noStroke() kann auch keine Füllfarb oder keine Kontur festgele
 - [TP Block 1_2](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block1_2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block1_2/sketch.js)
 
 
+### Grundstruktur setup & draw
+
+Jeder P5JS Sketch besteht zumindest aus zwei Funktionen: der function setup() und der function draw()
+
+Die der Inhalt der function setup() wird zum Beginn des Programms einmalig ausgeführt. Anschließend wechselt das Progamm in den Block der function draw(). 
+Der Inhalt dieser Funktion wird immer wieder wiederholt - normalerweise 60 mal je Sekunde ausgeführt. Erst diese ständige Wiederholung ermölicht es Animationen zu erstellen. 
+Für gewöhlich beginnt die function draw() mit der background() Funktion. Es wird also alles auf dem Canvas übermalt und wir zeichnen alles jeden Frame von neuem.
+
+
 ### Processing Variablen
 
 Processing bietet mehrere Variablen die von Processing vordefiniert sind.
