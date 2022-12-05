@@ -1,7 +1,3 @@
-# tp_processing_WS2022/23
-Kursmaterial TP Processing (p5js) Wintersemester 2022/23
-Kursdokumentation TP Processing FH|W–S FB Gestaltung  
-
 ## 02.12.2023 – Einfache Formen und Farben
 - [TP Block 1_1](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block1_1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block1_1/sketch.js)
 
