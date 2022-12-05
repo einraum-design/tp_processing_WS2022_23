@@ -49,5 +49,5 @@ function draw() {
   rect(width / 2, height / 2, 30, random(30, 100));
 
   fill(255, 255, 0);
-  arc(200, 400, 100, 100, 20.5*(sin(frameCount/20)+1), 360 - 20.5*(sin(frameCount/20)+1), PIE);
+  arc(200, 400, 100, 100, 20.5*(sin(frameCount*20)+1), 360 - 20.5*(sin(frameCount*20)+1), PIE);
 }
