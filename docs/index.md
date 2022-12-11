@@ -123,3 +123,138 @@ frameCount -> Zähler der nach jedem function draw Druchgang hochgezählt wird. 
 - Funktionen mit Rückgabetyp
 Am Ende des Funktionsaufrufs muss ein ein „return" mit dem Rückgabewert stehen. 
 die random() Funktion liefert zB. ein Fließkommerzahl zurück ...
+
+## 08.12.2022 – Variablentypen & if-Bedingungen
+- [TP_Block2](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block2/sketch.js)
+
+
+### Variablentypen
+
+***elementaren Variablen***
+- Ganzzahlen Integers int --> 1, 3, 34, -23
+- Fließkommazahlen FloatingPointNumbers float --> 0.234, 123.234, 1.0, -234.234
+- Boolean bool --> true / false
+- Character char --> 'a', 'b', ' ', '+', '\'' (escapen von sonderzeichen über \Sonderzeichen)
+
+***Objekte***
+- Textkette String --> "Hello World", " ", "8ohasdf"
+- p5.image (PImage) Bilder
+- p5.font (PFont) Schriften
+
+Variablen Definition in den meisten Programmiersprachen
+```
+// Typ variablenNamen ( = Wert);
+int alter = 18;
+```
+
+Variabeln Definition in p5js
+```
+let myXPos = 40.0;
+let myYPos = 60;
+let xSpeed, ySpeed;
+```
+
+if-Bedingungen 
+Mit if-Bedinungen lassen sich ein Programm steuern. 
+Über Bedingungen lässt sich steuern, welche Programmteile ausgeführt werden.
+
+```
+// if-Bedingungen
+// if(CONDITION) { wenn CONDITION erfüllt ist, wird alles im Rumpf (zwischen den {}) ausgeführt}
+if(mouseX > 300){
+    ellipse(mouseX, mouseY, 50, 50);
+}
+```
+
+Um Bedingungen zu formulieren gibt es ***Vergleichsoperatoren***
+- A > B  --> wenn A größer als B ist
+- A < B  --> wenn A kleiner als B ist
+- A >= B --> wenn A größer oder gleich B ist
+- A <= B --> wenn A kleiner oder gleich B ist
+- A == B --> wenn der Wert von A gleich B ist
+- A === B --> wenn der Wert von A gleich B ist und der Typ von A und B gleich ist
+- A != B --> wenn der Wert von A nicht gleich B ist
+  
+  
+Um mehrere Bedingung miteinander zu verbinden gibt es ***Verknüpfungsoperatoren***
+- CONDITION_A && CONDITION_B --> Wenn Bedingung A UND Bedingung B erfüllt sind
+- CONDITION_A || CONDITION_B --> Wenn Bedingung A ODER Bedingung B (oder beide) erfüllt sind
+  
+  
+## 09.12.2022 – if-else Bedingungen, Buttons, Eventlistener
+- [TP_Block3_1](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block3_1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block3_1/sketch.js)
+
+
+„Schaltflächen" innerhalb des Canvas Elements lassen sich in p5js auf die Weise erstellen, dass abgefragt wird, ob der Cursor über der Position der definierten Fläche ist.
+
+Bei rechteckigen Buttons lässt sich von allen vier Seiten abfragen, 
+Ob die Maus-X-Position größer als die linke Seite und kleiner als die rechte Kantenposition des Rechtecks ist. Analog dazu Ober- und Unterkante des Rechtecks.
+
+```
+if (mouseX >= xButton && 
+    mouseX <= xButton + wButton && 
+    mouseY >= yButton && 
+    mouseY <= yButton + hButton) {
+        // Maus ist über dem Rechteck
+}
+```
+
+Bei einem Kreis kann man einfach den Abstand des Cursors zum Mittelpunkt des Kreises berechnen und daran den Status festlegen.
+
+```
+// mit der dist() funktion den Abstand 
+// zwischen Mauskoordinaten und Button Mittelpunkt berechnen:
+float cursorToEllipseCente = dist(mouseX, mouseY, xCircleButton, yCircleButton);
+
+if (cursorToEllipseCente < diameterCircleButton/2) {
+    // Maus ist über dem Kreis
+}
+```
+
+Ein „hover“ Effekt für die Schaltflächen lässt sich erstellen, indem in der function draw – also in jedem Frame – abgefragt wird ob die Maus über der Fläche ist und die Darstellung damit verändert wird. 
+
+
+Soll sich der Status des Buttons auf ein Event (zB. Click) hin umschalten, muss beachtet werden, dass der Wechsel nicht innerhalb der void draw mehrfach ausgeführt wird.
+Deshalb gibt es Event Händler, die auf bestimmte Events hin jeweils einmal ausgeführt werden. Diese stehen außerhalb der function setup() und der function draw().
+```
+// wird in dem Moment aufgerufen, wenn die Maustaste gedrückt wird.
+void mousePressed() {
+    // der Inhalt im Funktionsrumpf wird pro Click einmal ausgeführt.
+}
+```
+
+Weiter Eventhandler für Maus- und TastaturEvents sind in der Referenz zu finden.
+
+## 09.12.2022 – Schleifen while und for
+[TP_Block3_2](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block3_2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block3_2/sketch.js)
+
+Um Funktionen mehrfach auszuführen, gibt es unterschiedliche Schleifen Konstrukte (while-loop, do-while-loop, for-loop und for-each-loop).
+
+### WHILE-LOOP:
+
+Die while loop ist von der Syntax am einfachsten aufgebaut. 
+```
+  while (CONDITION) {
+    /* do something - Schleifenrumpf */
+  }
+```
+Die Bedingung wird überprüft - wenn die Bedingung true ist, wird der Schleifenrumpf ausgeführt.
+Anschließend wird die Bedingung erneut überprüft und der Schleifenrumpf erneut ausgeführt etc.
+Ist die Bedingung nicht erfüllt, wird die Wiederholung unterbrochen und das Programm nach der Schleife fortgesetzt.
+
+### FOR-LOOP
+Die for Schleife funktioniert sehr ähnlich der while Schleife.
+Als Parameter werden jedoch 3 Teile (statt nur der Bedingung) erwartet.
+
+- Im ersten Teil kann eine Variabel definiert werden. Diese ist dann nur innerhalb des Scheifenrumpfs gültig
+- Im zweiten Teil wird wie in der while Schleife eine Bedingung formuliert.
+- Der dritte Teil wird jeweils am Ende des Schleifenrumps aufgeführt. (Hier wird zB. die Zählervariabel nach jeder  Wiederholung inkrementiert).
+
+```
+// for (VARIABLE-DEFINITION; CONDITION; INCREMENTOR)
+  for (let i = 0; i < 20; i = i + 1) {
+    fill(100, 100 + i, random(200, 255));
+    ellipse(i*30 + 20, random(-100, 100), 10, 10);
+  }
+```
+

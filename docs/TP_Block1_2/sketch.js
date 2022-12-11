@@ -2,7 +2,7 @@
 // Daten geladen: Bilder, Schriften, ...
 // Canvas erstellen, weiter HTML Elemente erstellen
 function setup() {
-  createCanvas(400, 600);
+  createCanvas(600, 600);
 
   // die function draw wird standartmaessig 60 mal pro Sekunde ausgefuehrt
   //frameRate(60);
@@ -32,7 +32,7 @@ function setup() {
 function draw() {
   background(0, 220, 0);
   fill(255, 0, 0, mouseY);
-  ellipse(mouseX, mouseY, mouseX, 100, 100);
+  ellipse(mouseX, mouseY, 100, 100);
   fill(255, 255, 0, mouseY);
   ellipse(mouseX, mouseY, 100, mouseY);
   rectMode(CORNER);
