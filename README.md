@@ -1,2 +1,2 @@
-# tp_processing_SoSe2022
-Kursmaterial TP Processing (p5js) Sommersemester 2022
+# tp_processing_WS2022_23
+Kursmaterial TP Processing (p5js) Wintersemester 2022/23
