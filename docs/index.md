@@ -258,3 +258,37 @@ Als Parameter werden jedoch 3 Teile (statt nur der Bedingung) erwartet.
   }
 ```
 
+
+## 15.12.2022 – Transformationen
+- [TP_Block4_1](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block4_1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block4_1/sketch.js)
+[TP_Block4_2](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block4_2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block4_2/sketch.js)
+
+Um Zeichenelemente im Processing Sketch zu bewegen, gibt es einige Transformations Tools.
+
+Transformationen werden immer vom Nullpunkt des Koordinatensystems ausgeführt.
+Zu Beginn der void draw ist das Koordinatensystem immer in der linken oberen Ecke.
+Wird ein rotate(float Winkel) Befehl ausgeführt wird also alles um diese Ecke rotiert. 
+
+Um um einen anderen Mittelpunkt rotieren zu können, muss zuerst das Zeichenkoordinatensystem 
+an den gewünschten Mittelpunkt verschoben werden.
+Die geschieht über den translate(float x, float y) Befehl. Translate kann das Zeichenkoordinatensystem
+in x und y Richtung verschieben.
+
+Als drittes Transformationstool gibt es den scale(float x, float y) Befehl. 
+Dieser Skaliert das Koordinatensystem. Scale funktioniert mit positiven wie auch negativen Werten. Damit lassen sich Inhalte auch spiegeln. 
+
+Es können beliebig viele Transformationen hintereinander ausgeführt werden. 
+Jede Verschiebung und Rotation wird aber auf die vorherigen aufaddiert!
+Wenn das Koordinatensystem mit rotate() verdreht wurde und anschließend wieder 
+ein translate ausgeführt wird, wird das Koordinatensystem in die rotierte Richtung verschoben.
+
+Bei jedem Neustart der void draw() wird das Koordinatensystem wieder auf das Standart Koordinatensystem zurück gesetzt.
+
+Das Zeichenkoordiantensystem lässt sich innerhalb der void draw wieder auf Standartposition, Rotation und Skalierung zurücksetzen:
+
+```
+ resetMatrix();
+```
+
+## 15.12.2022 – CSS
+- [TP_Block4_3](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block4_3/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block4_3/sketch.js)

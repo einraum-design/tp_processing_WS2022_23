@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* 
+alle h1 Elemente bekommen folgende Darstellungseigenschaften
+*/
+h1 {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: normal;
+}
+
+/* das Element mit der ID "canvasContainer" bekommt einen Innenabstand von 15 px */
+#canvasContainer {
+  padding: 15px;
+  border: 1px solid #000000;
+}
+
+/* alles Objekte mit der Klasse class="monospace" werden gewählt */ 
+.monospaceClass {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+p {
+  display: inline;
+}
+
+a {
+  cursor:crosshair;
+}
+
+a:hover {
+  text-decoration:double;
+}
+
+/* alle spans die innerhalb von einem p sind */
+p span {
+  font-style: italic;
+}
+
+canvas {
+  display: block;
+}
