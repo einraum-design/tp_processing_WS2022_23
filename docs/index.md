@@ -292,3 +292,85 @@ Das Zeichenkoordiantensystem lässt sich innerhalb der void draw wieder auf Stan
 
 ## 15.12.2022 – CSS
 - [TP_Block4_3](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block4_3/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block4_3/sketch.js)
+
+
+## 16.12.2022 – functions
+- [TP_Block5_1](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block5_1/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block5_1/sketch.js)
+
+Processing bietet einige vordefinierte Funktionen, wie zb. die ellipse(), map(), fill() … Funktionen.
+Wir können jedoch auch beliebig eigene Funktionen definieren.
+
+Eine eigene Funktion besteht aus vier Teilen:
+Deklaration "function" 
+
+Funktionsname
+- beginnt mit einem Kleinbuchstaben
+- ein Wort! (Keine Leerzeichen/Kommas/Punkte)
+
+Klammern (optional Paramater …) 
+
+```
+function myFunction (parameter1, parameter2){
+    // optional Rückgabewert
+    return result;
+
+}
+```
+
+Es lassen sich auch optionale Parameter in der Funktion definieren:
+```
+function myFunction (parameter1 = 100){
+    ...
+}
+```
+Wenn ein Parameter beim Funktionsaufruf mitgegeben wird, wird dieser als parameter1 gesetzt. Ansonsten wird der Standartwert 100 genutzt.
+
+
+Es lassen sich zwei Funktionstypen unterscheiden: 
+
+- Funktionen ohne Rückgabetyp:
+Bei Funktionsaufruf wird alles was im Rumpf steht einfach ausgeführt und danach kehrt das Programme wieder an die Stelle, an der die Funktion aufgerufen wurde zurück und führt die nächsten Befehle aus ...
+
+- Funktionen mit Rückgabetyp
+Am Ende des Funktionsaufrufs muss ein ein „return" mit dem Rückgabewert stehen. 
+die random() Funktion liefert zB. ein Fließkommerzahl zurück ...
+
+
+## 16.12.2022 – Videos & Sounds
+- [TP_Block5_2](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block5_2/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block5_2/sketch.js)
+
+Video können als eigenständiges HTML Element in eine Webseite eingebunden werden. 
+Ein Vidoe Element lässt sich mit folgender Zeile in p5js erstellen:
+```
+video = createVideo("assets/launch2.mp4");
+// es können auch Steuerungselemente beim HTML Video eingeblendet werden:
+video.showControls(true);
+```
+
+Wenn das Video allerdings auf das canvas Element gezeichnet werden soll, muss trotzdem ein Video Element erstellt werden. Hier wird das video allerdings im HTML ausgeblendent und dann nur auf den inhalt des Videoplayer zugegriffen.
+Das Video kann dann mit der image funktion auf das Canvas Element gezeichnet werden:
+```
+video = createVideo("assets/launch2.mp4");
+video.hide();
+
+// innerhalb der function draw()
+image(video, 0, 0);
+```
+
+MediaPlayer habe haben eigene Eventhandler, über die auf zB. Ende des Videos reagiert werden kann: 
+```
+// Listener der aufgerufen wird, wenn ein Video zu Ende gespielt ist
+video.onended(tue_etwas);
+
+// die function "tue_etwas" muss dann noch außerhalb der function setup() definiert werden
+function tue_etwas(elt){
+  console.log("Video ist zu Ende - schlafen gehen");
+  // zB. Videoelement ausblenden ...
+  elt.hide();
+}
+```
+
+
+
+## 16.12.2022 – Beispielprogramm (Aufbau) mit mehreren Programmteilen
+- [TP_Block5_3](https://einraum-design.github.io/tp_processing_WS2022_23/TP_Block5_3/index.html) [(--> Code)](https://github.com/einraum-design/tp_processing_WS2022_23/blob/main/docs/TP_Block5_3/sketch.js)
